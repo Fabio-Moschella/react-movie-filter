@@ -15,7 +15,6 @@ function App() {
   useEffect(() => {
     console.log("selectedGenre Cambia:" + selectedGenre);
     // Filtro e setto i nuovi movies
-    moviesList.filter(movie).includes(movie.genre);
   }, [selectedGenre]);
 
   return (
@@ -35,6 +34,17 @@ function App() {
         ))}
       </select>
       {selectedGenre}
+
+      <div className="row mt-3 ">
+        {movies.map((movie, index) => (
+          <div className="col-4" key={index}>
+            <div className="card mb-3 ">
+              <div className="card-header ">{movie.title}</div>
+              <div className="card-body">{movie.genre}</div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
