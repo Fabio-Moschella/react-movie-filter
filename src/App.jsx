@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const moviesList = [
@@ -11,6 +11,12 @@ function App() {
   ];
   const [movies, setMovies] = useState(moviesList);
   const [selectedGenre, setSelectedGenre] = useState("");
+
+  useEffect(() => {
+    console.log("selectedGenre Cambia:" + selectedGenre);
+    // Filtro e setto i nuovi movies
+    moviesList.filter(movie).includes(movie.genre);
+  }, [selectedGenre]);
 
   return (
     <div className="container">
@@ -28,6 +34,7 @@ function App() {
           </option>
         ))}
       </select>
+      {selectedGenre}
     </div>
   );
 }
