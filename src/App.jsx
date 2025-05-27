@@ -14,7 +14,15 @@ function App() {
 
   useEffect(() => {
     console.log("selectedGenre Cambia:" + selectedGenre);
-    // Filtro e setto i nuovi movies
+
+    if (selectedGenre === "") {
+      setMovies(moviesList);
+    } else {
+      const filtered = moviesList.filter(
+        (movie) => movie.genre === selectedGenre
+      );
+      setMovies(filtered);
+    }
   }, [selectedGenre]);
 
   return (
